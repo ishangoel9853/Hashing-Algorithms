@@ -3,48 +3,58 @@
 #include<malloc.h>
 #include<math.h>
 #include<stdlib.h>
+
+
 #define rotateleft(x,n) ((x<<n) | (x>>(32-n)))
 #define rotateright(x,n) ((x>>n) | (x<<(32-n)))
+
+
 void SHA1(unsigned char * str1)
 {
   int i,j;
   unsigned long int h0,h1,h2,h3,h4,a,b,c,d,e,f,k,temp;
+
   h0 = 0x67452301;
   h1 = 0xEFCDAB89;
   h2 = 0x98BADCFE;
   h3 = 0x10325476;
   h4 = 0xC3D2E1F0;
+
   unsigned char * str;
+
   str = (unsigned char *)malloc(strlen((const char *)str1)+100);
+
   strcpy((char *)str,(const char *)str1);
-  int current_length = strlen((const char *)str);
-  int original_length = current_length;
-  str[current_length] = 0x80;
-  str[current_length + 1] = '\0';
-  char ic = str[current_length];
-  current_length++;
-  int ib = current_length % 64;
+
+  int curr_len = strlen((const char *)str);
+  int og_len = curr_len;
+
+  str[curr_len] = 0x80;
+  str[curr_len + 1] = '\0';
+  char ic = str[curr_len];
+  curr_len++;
+  int ib = curr_len % 64;
   if(ib<56)
   ib = 56-ib;
   else
   ib = 120 - ib;
   for(int i=0;i < ib;i++)
   {
-    str[current_length]=0x00;
-    current_length++;
+    str[curr_len]=0x00;
+    curr_len++;
   }
-  str[current_length + 1]='\0';
+  str[curr_len + 1]='\0';
   for(i=0;i<6;i++)
   {
-    str[current_length]=0x0;
-    current_length++;
+    str[curr_len]=0x0;
+    curr_len++;
   }
-  str[current_length] = (original_length * 8) / 0x100 ;
-  current_length++;
-  str[current_length] = (original_length * 8) % 0x100;
-  current_length++;
-  str[current_length+i]='\0';
-  int number_of_chunks = current_length/64;
+  str[curr_len] = (og_len * 8) / 0x100 ;
+  curr_len++;
+  str[curr_len] = (og_len * 8) % 0x100;
+  curr_len++;
+  str[curr_len+i]='\0';
+  int number_of_chunks = curr_len/64;
   unsigned long int word[80];
   for(i=0;i<number_of_chunks;i++)
   {
@@ -99,7 +109,10 @@ void SHA1(unsigned char * str1)
     h4 = h4 + e;
   }
   printf("\n\n");
-  printf("Hash: %x %x %x %x %x",h0, h1, h2, h3, h4);
+  printf("STRING :  The quick brown fox jumps over the lazy dog");
+  printf("\n\n");
+
+  printf("SHA1 hash: %x%x%x%x%x",h0, h1, h2, h3, h4);
   printf("\n\n");
 }
 
