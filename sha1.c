@@ -112,7 +112,7 @@ void SHA1(unsigned char * str1)
   printf("STRING :  The quick brown fox jumps over the lazy dog");
   printf("\n\n");
 
-  printf("SHA1 hash: %x %x %x %x %x",h0, h1, h2, h3, h4);
+  printf("SHA1 hash: %x%x%x%x%x",h0, h1, h2, h3, h4);
   printf("\n\n");
 }
 
