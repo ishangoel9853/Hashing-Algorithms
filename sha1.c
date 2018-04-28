@@ -1,3 +1,9 @@
+// Running instructions:
+// run gcc sha1.c
+// run ./a.out
+
+
+
 #include<stdio.h>
 #include<string.h>
 #include<malloc.h>

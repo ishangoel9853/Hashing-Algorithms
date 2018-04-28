@@ -1,10 +1,10 @@
-/*****Please include following header files*****/
+// Running instructions:
+// run gcc sha256.c
+// run ./a.out
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-//#include<iostream>
-//using namespace std;
-/***********************************************/
 
 #define uchar unsigned char
 #define uint unsigned int

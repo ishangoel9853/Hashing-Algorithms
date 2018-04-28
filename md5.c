@@ -1,7 +1,11 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
-#include<math.h>
+// Running instructions:
+// run gcc -Wall md5.c -o md5 -lm
+// run ./md5
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 
 typedef union uwb {
     unsigned w;
@@ -160,9 +164,5 @@ int main( int argc, char *argv[] )
         for (k=0;k<4;k++) printf("%02x",u.b[k]);
     }
     printf("\n");
-  //  system("pause");
     return 0;
 }
-
-//gss -Wall md5.c -o md5 -lm
-//./md5
