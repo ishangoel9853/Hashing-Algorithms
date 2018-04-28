@@ -1,4 +1,3 @@
-
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
@@ -137,9 +136,9 @@ const char* GetMD5String(const char *msg, int mlen) {
 }
 
 int main() {
-  char* str;
+  char str[40];
   printf("Enter the string: ");
-  scanf("%s", str);
+  gets(str);
   char* md5String = GetMD5String(str,strlen(str))
   printf("/nThe MD5 string of your input is: %s\n",md5String);
   return 0;
